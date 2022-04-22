@@ -62,12 +62,12 @@ developing your own process.
 
 - Add a new toy when the toy form is submitted
 
-  - How I debugged:
+  - How I debugged: First, the controller action `create` had a server error, and looking at it I noticed the typo of the class being "Toys" instead of "Toy".
 
 - Update the number of likes for a toy
 
-  - How I debugged:
+  - How I debugged: The response from the like returned a "204 No Content", which means that no information was being sent through. So, I knew that there was no json data being returned, and thus noticed that no data was being rendered. I added the render to json statement to have the route able to send a responce back.
 
 - Donate a toy to Goodwill (and delete it from our database)
 
-  - How I debugged:
+  - How I debugged: I noticed that the routes available didn't include destroy, so I added it, but could have removed the entire only statement based on RESTful conventions. Also, the response prior gave a "ActionController::RoutingError" that there was no DELETE method, and that I should look in the routes for the error.
